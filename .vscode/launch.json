@@ -1,0 +1,28 @@
+{
+  "configurations": [
+    {
+      "type": "lldb",
+      "request": "launch",
+      "sourceLanguages": [
+        "swift"
+      ],
+      "args": [],
+      "cwd": "${workspaceFolder:ScreenCaptureKit-Recording-example}",
+      "name": "Debug sckrecording",
+      "program": "${workspaceFolder:ScreenCaptureKit-Recording-example}/.build/debug/sckrecording",
+      "preLaunchTask": "swift: Build Debug sckrecording"
+    },
+    {
+      "type": "lldb",
+      "request": "launch",
+      "sourceLanguages": [
+        "swift"
+      ],
+      "args": [],
+      "cwd": "${workspaceFolder:ScreenCaptureKit-Recording-example}",
+      "name": "Release sckrecording",
+      "program": "${workspaceFolder:ScreenCaptureKit-Recording-example}/.build/release/sckrecording",
+      "preLaunchTask": "swift: Build Release sckrecording"
+    }
+  ]
+}
