@@ -295,6 +295,11 @@ class AVWriter {
     self.assetWriterAudioInput = assetWriterAudioInput
     self.assetWriterVideoInput = assetWriterVideoInput
     self.assetWriterMicInput = assetWriterMicInput
+    do {
+      try startRecordingMic()
+    } catch {
+      print("Error starting mic recording", error)
+    }
     isRecording = true
   }
 
@@ -325,7 +330,7 @@ class AVWriter {
       assetWriter.startWriting()
       assetWriter.startSession(atSourceTime: CMSampleBufferGetPresentationTimeStamp(sampleBuffer))
     } else if assetWriter.status == .writing {
-      if let input = assetWriterVideoInput {
+      if let input = assetWriterVideoInput, input.isReadyForMoreMediaData {
         input.append(sampleBuffer)
       }
     } else {
